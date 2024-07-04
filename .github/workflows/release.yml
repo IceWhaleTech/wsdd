@@ -16,12 +16,12 @@ jobs:
 
         - name: Package # need to package into multiple files to avoid github file size limit
           run: |
-            tar -zcvf wsdd-${{ github.ref_name }}.tar.gz ./build
+            tar -zcvf zimaos-wsdd-${{ github.ref_name }}.tar.gz ./build
 
         - uses: softprops/action-gh-release@v1
           with:
             files: |
-              wsdd-${{ github.ref_name }}.tar.gz
+              zimaos-wsdd-${{ github.ref_name }}.tar.gz
             draft: false
             prerelease: true
             fail_on_unmatched_files: true
