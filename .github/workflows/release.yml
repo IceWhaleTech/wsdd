@@ -1,4 +1,4 @@
-name: pyinstaller
+name: release
 
 on:
   push:
