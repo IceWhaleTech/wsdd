@@ -1,0 +1,27 @@
+name: pyinstaller
+
+on:
+  push:
+    tags:
+      - v*.*.*
+
+jobs:
+  pyinstaller:
+    runs-on: ubuntu-22.04
+    steps:
+        - name: Checkout
+          uses: actions/checkout@v4
+          with:
+            fetch-depth: 0
+
+        - name: Package # need to package into multiple files to avoid github file size limit
+          run: |
+            tar -zcvf wsdd-${{ github.ref_name }}.tar.gz ./build
+
+        - uses: softprops/action-gh-release@v1
+          with:
+            files: |
+              wsdd-${{ github.ref_name }}.tar.gz
+            draft: false
+            prerelease: true
+            fail_on_unmatched_files: true
