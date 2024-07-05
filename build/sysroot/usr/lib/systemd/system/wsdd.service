@@ -12,7 +12,7 @@ Wants=network-online.target
 
 [Service]
 Type=simple
-EnvironmentFile=/etc/casaos/wsdd
+EnvironmentFile=/etc/wsdd/wsdd.conf
 ; The service is put into an empty runtime directory chroot,
 ; i.e. the runtime directory which usually resides under /run
 ExecStart=/usr/bin/wsdd.py --shortlog $WSDD_PARAMS
